@@ -1,5 +1,4 @@
 import React from 'react'
-import JokeHolder from './JokeHolder'
 
 export default class Categories extends React.Component {
   constructor() {
@@ -16,21 +15,16 @@ export default class Categories extends React.Component {
   componentWillMount() {
     fetch('https://api.chucknorris.io/jokes/categories')
     .then(res=>res.json())
-    .then(res=> this.setState({
-      categories: res
-    }))
+    .then(res=> this.setState({categories: res}))
   }
 
   render() {
-    const output = Object.values(this.state.categories).map(c =>
-      <option value={c} onClick={this.setCat}>{c}</option>
-    )
+    let output = Object.values(this.state.categories).map(c => <option className='category' value={c} onClick={this.setCat}>{c}</option>)
 
-    return(
-      <div>
+    return (
+      <div className='category-list'>
         {output}
       </div>
     )
   }
-
 }

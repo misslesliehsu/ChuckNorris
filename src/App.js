@@ -2,36 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import Starter from './Starter'
 import SearchType from './SearchType'
-import Categories from './Categories'
 import Joke from './Joke'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      wantChuck: '',
-      wantCat: '',
-      chosenCat: ''
+      wantChuck: ''
     }
   }
 
   handleWantChuck = (input) => {
     this.setState({wantChuck: input})
-  }
-
-  handleWantCat = (input) => {
-    if (input === 'no') {
-      this.setState({
-        chosenCat: 'random',
-        wantCat: ''
-      })
-    }
-    else {
-      this.setState({
-        wantCat: input,
-        chosenCat: ''
-      })
-    }
   }
 
 
@@ -44,13 +26,6 @@ class App extends Component {
     }
   }
 
-  setCat = (cat) => {
-    this.setState({chosenCat: cat})
-  }
-
-  setJoke = (joke) => {
-    this.setState({joke})
-  }
 
   render() {
     return (
@@ -66,17 +41,10 @@ class App extends Component {
           <img src='https://media.giphy.com/media/l1J3nY7N7LBrBobVm/giphy.gif'></img>
         </div>
 
-        <div style={{display: this.translateWant('wantCat')}}>
-          <Categories setCat={this.setCat}></Categories><br></br><br></br>
-        </div>
-
-        <div style={{display: (this.state.joke === '' ? "none" : "block")}}>
-          <Joke joke={this.state.joke} setJoke={this.setJoke}></Joke>
-        </div>
-
       </div>
     )
   }
+
 }
 
 export default App;

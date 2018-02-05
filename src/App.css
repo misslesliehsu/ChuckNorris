@@ -28,6 +28,7 @@
 }
 
 .joke {
+  color: blue;
   animation-name: scaleIt;
   animation-duration: 1s;
 }
@@ -35,4 +36,20 @@
 @keyframes scaleIt {
   from { transform: scale(2.0) }
   to { transform: scale(1) }
+}
+
+.category-list {
+  margin-top: 50px;
+}
+
+.category {
+  margin:5px;
+}
+.category-list option:hover {
+  font-weight: bolder;
+  color: blue;
+}
+
+.another {
+  transition-delay: 3s;
 }
